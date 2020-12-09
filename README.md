@@ -1,3 +1,5 @@
+上海大学自动每日一报
+
 1、请先安装谷歌浏览器chrome和配置chrome的chromedriver
 
   chromedriver下载地址http://npm.taobao.org/mirrors/chromedriver/
