@@ -1,9 +1,10 @@
-1、请先配置谷歌浏览器chrome的chromedriver
+1、请先安装谷歌浏览器chrome和配置chrome的chromedriver
 
-下载地址http://npm.taobao.org/mirrors/chromedriver/
-请按照浏览器版本下载，下载好后请将其放到谷歌浏览器根目录和python根目录下
+  chromedriver下载地址http://npm.taobao.org/mirrors/chromedriver/
 
-将浏览器目录绝对地址复制到login_info第一行，覆盖掉之前存在的示例地址
+  请按照浏览器版本下载，下载好后请将其放到谷歌浏览器根目录和python根目录下
+
+  将webdriver在浏览器目录中的绝对地址复制到login_info第一行，覆盖掉之前存在的示例地址
 
 
 2、配置Python环境:
@@ -12,7 +13,8 @@
 
 
 3、进入界面先输入账号密码，点击添加账号。信息会加密储存在login_info中，如果密码输入错误请在login_info中删除对应一行，不要留下换行符。
-可以储存多个账号密码，顺序打卡。
+
+   可以储存多个账号密码，顺序打卡。
 
 
 4、界面右边可选打卡完自动关机，以及0点后自动打卡，延迟打卡等。会自动将历史未打卡的打完。
