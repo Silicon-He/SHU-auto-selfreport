@@ -3,7 +3,7 @@
 下载地址http://npm.taobao.org/mirrors/chromedriver/
 请按照浏览器版本下载，下载好后请将其放到谷歌浏览器根目录和python根目录下
 
-将浏览器目录绝对地址复制到login_info第一行，覆盖掉之前存在的示例地址
+将webdriver在浏览器目录中的绝对地址复制到login_info第一行，覆盖掉之前存在的示例地址
 
 
 2、配置Python环境:
