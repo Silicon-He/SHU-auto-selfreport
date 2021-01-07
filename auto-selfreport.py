@@ -5,8 +5,8 @@
 # @Software:PyCharm
 
 from selenium import webdriver
-import os, time
 import tkinter as tk
+import os, time
 import tkinter.messagebox
 from bs4 import BeautifulSoup
 from threading import Timer
@@ -69,7 +69,11 @@ def submit():
         if title == '上海大学统一身份认证':
             time.sleep(1)
             login(username, dic[username], driver)
-            found_not_report(driver)
+            if username[:2] == '10':
+                position_flag = 1
+            else:
+                position_flag = 0
+            found_not_report(driver,position_flag)
             driver.close()
 
     shotdown()
@@ -89,8 +93,11 @@ def login(username, password, driver):
     time.sleep(1)
 
 
-def found_not_report(driver):
-    driver.get('https://selfreport.shu.edu.cn/XueSFX/HalfdayReport_History.aspx')
+def found_not_report(driver,position_flag):
+    if position_flag == 0:
+        driver.get('https://selfreport.shu.edu.cn/XueSFX/HalfdayReport_History.aspx')
+    else:
+        driver.get('https://selfreport.shu.edu.cn/ReportHistory.aspx')
 
     source = driver.page_source
     bs_html = BeautifulSoup(source, 'lxml')
@@ -106,38 +113,74 @@ def found_not_report(driver):
         if new_time[3] < 20 and cnt == 1:
             cnt += 1
             continue
+
         if 'View' not in link and 'XueSFX' in link:
             tar_link = 'https://selfreport.shu.edu.cn' + link
             print(tar_link)
             time.sleep(0.5)
             driver.get(tar_link)
-            report(driver)
+            report(driver,position_flag)
+
+    if position_flag == 1:
+        link = 'https://selfreport.shu.edu.cn/DayReport.aspx?day={}-{}-{}'.format(new_time[0], new_time[1], new_time[2])
+        print(link)
+        driver.get(link)
+        report(driver, position_flag)
 
 
-def report(driver):
+def report(driver,position_flag):
     # driver.find_element_by_id('lbReport').click()
     # time.sleep(1)
+    if position_flag == 0:
+        time.sleep(1)
+        driver.find_element_by_id("p1_ChengNuo-inputEl-icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_id('p1_TiWen-inputEl').send_keys('36.5')
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_6-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_11-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_13-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_17-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_19-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_21-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_26-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_27-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('p1_ctl00_btnSubmit').click()
+        time.sleep(1)
+        driver.find_element_by_id('fineui_32').click()
 
-    time.sleep(1)
-    driver.find_element_by_id("p1_ChengNuo-inputEl-icon").click()
-    time.sleep(0.5)
-    driver.find_element_by_id('p1_TiWen-inputEl').send_keys('36.5')
-    time.sleep(0.5)
-    driver.find_element_by_id('fineui_6-inputEl-icon').click()
-    time.sleep(0.5)
-    driver.find_element_by_id('fineui_11-inputEl-icon').click()
-    time.sleep(0.5)
-    driver.find_element_by_id('fineui_13-inputEl-icon').click()
-    time.sleep(0.5)
-    driver.find_element_by_id('fineui_15-inputEl-icon').click()
-    time.sleep(0.5)
-    driver.find_element_by_id('fineui_21-inputEl-icon').click()
-    time.sleep(0.5)
-    driver.find_element_by_id('fineui_23-inputEl-icon').click()
-    time.sleep(0.5)
-    driver.find_element_by_id('p1_ctl00_btnSubmit').click()
-    time.sleep(1)
-    driver.find_element_by_id('fineui_32').click()
+    else:
+        driver.find_element_by_id("p1_ChengNuo-inputEl-icon").click()
+        time.sleep(0.5)
+        driver.find_element_by_id('p1_TiWen-inputEl').send_keys('36.5')
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_6-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_20-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_22-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_26-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_28-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_30-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_35-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('fineui_36-inputEl-icon').click()
+        time.sleep(0.5)
+        driver.find_element_by_id('p1_ctl00_btnSubmit').click()
+        time.sleep(1)
+        driver.find_element_by_id('fineui_41').click()
 
 
 def shotdown():
