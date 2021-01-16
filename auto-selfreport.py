@@ -138,6 +138,8 @@ def report(driver,position_flag):
         time.sleep(0.5)
         driver.find_element_by_id('fineui_0-inputEl-icon').click()
         time.sleep(0.5)
+        driver.find_element_by_id('p1_TiWen-inputEl').send_keys('36.5')
+        time.sleep(0.5)
         driver.find_element_by_id('fineui_6-inputEl-icon').click()
         time.sleep(0.5)
         driver.find_element_by_id('fineui_11-inputEl-icon').click()
