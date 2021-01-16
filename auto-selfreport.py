@@ -31,6 +31,7 @@ def usr_login():
         f.close()
 
 
+
 def read_usr_info():
     name, password, temp = [], [], []
     with open('login_info.txt', 'r+',encoding='utf-8') as f:
@@ -135,7 +136,7 @@ def report(driver,position_flag):
         time.sleep(1)
         driver.find_element_by_id("p1_ChengNuo-inputEl-icon").click()
         time.sleep(0.5)
-        driver.find_element_by_id('p1_TiWen-inputEl').send_keys('36.5')
+        driver.find_element_by_id('fineui_0-inputEl-icon').click()
         time.sleep(0.5)
         driver.find_element_by_id('fineui_6-inputEl-icon').click()
         time.sleep(0.5)
@@ -160,7 +161,7 @@ def report(driver,position_flag):
     else:
         driver.find_element_by_id("p1_ChengNuo-inputEl-icon").click()
         time.sleep(0.5)
-        driver.find_element_by_id('p1_TiWen-inputEl').send_keys('36.5')
+        driver.find_element_by_id('fineui_0-inputEl-icon').click()
         time.sleep(0.5)
         driver.find_element_by_id('fineui_6-inputEl-icon').click()
         time.sleep(0.5)
