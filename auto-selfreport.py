@@ -156,7 +156,7 @@ def report(driver,position_flag):
         time.sleep(0.5)
         driver.find_element_by_id('p1_ctl00_btnSubmit').click()
         time.sleep(1)
-        driver.find_element_by_id('fineui_37').click()
+        driver.find_element_by_id('fineui_33').click()
 
     else:
         driver.find_element_by_id("p1_ChengNuo-inputEl-icon").click()
