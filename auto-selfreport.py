@@ -101,7 +101,7 @@ def found_not_report(driver,position_flag):
         driver.get('https://selfreport.shu.edu.cn/ReportHistory.aspx')
 
     source = driver.page_source
-    bs_html = BeautifulSoup(source, 'lxml')
+    bs_html = BeautifulSoup(source, 'html.parser')
 
     localtime = time.localtime(time.time())
     new_time = list(localtime)
