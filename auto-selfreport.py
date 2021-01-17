@@ -107,20 +107,22 @@ def found_not_report(driver,position_flag):
     new_time = list(localtime)
     print("现在时间为 :%d年%d月%d日%d时%d分" % (new_time[0], new_time[1], new_time[2], new_time[3], new_time[4]))
     cnt = 1
-    for item in bs_html.find_all("a"):
+    if position_flag == 0:
+        for item in bs_html.find_all("a"):
 
-        link = str(item.get("href"))
+            link = str(item.get("href"))
 
-        if new_time[3] < 20 and cnt == 1:
-            cnt += 1
-            continue
+            if new_time[3] < 20 and cnt == 1:
+                cnt += 1
+                continue
 
-        if 'View' not in link and 'XueSFX' in link:
-            tar_link = 'https://selfreport.shu.edu.cn' + link
-            print(tar_link)
-            time.sleep(0.5)
-            driver.get(tar_link)
-            report(driver,position_flag)
+            if 'View' not in link and 'XueSFX' in link:
+                tar_link = 'https://selfreport.shu.edu.cn' + link
+                print(tar_link)
+                time.sleep(0.5)
+                driver.get(tar_link)
+                report(driver,position_flag)
+
 
     if position_flag == 1:
         link = 'https://selfreport.shu.edu.cn/DayReport.aspx?day={}-{}-{}'.format(new_time[0], new_time[1], new_time[2])
@@ -142,23 +144,19 @@ def report(driver,position_flag):
         time.sleep(0.5)
         driver.find_element_by_id('fineui_6-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_11-inputEl-icon').click()
+        driver.find_element_by_id('fineui_12-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_13-inputEl-icon').click()
+        driver.find_element_by_id('fineui_14-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_17-inputEl-icon').click()
+        driver.find_element_by_id('fineui_18-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_19-inputEl-icon').click()
-        time.sleep(0.5)
-        driver.find_element_by_id('fineui_21-inputEl-icon').click()
-        time.sleep(0.5)
-        driver.find_element_by_id('fineui_26-inputEl-icon').click()
+        driver.find_element_by_id('fineui_20-inputEl-icon').click()
         time.sleep(0.5)
         driver.find_element_by_id('fineui_27-inputEl-icon').click()
         time.sleep(0.5)
         driver.find_element_by_id('p1_ctl00_btnSubmit').click()
         time.sleep(1)
-        driver.find_element_by_id('fineui_32').click()
+        driver.find_element_by_id('fineui_37').click()
 
     else:
         driver.find_element_by_id("p1_ChengNuo-inputEl-icon").click()
@@ -167,23 +165,23 @@ def report(driver,position_flag):
         time.sleep(0.5)
         driver.find_element_by_id('fineui_6-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_20-inputEl-icon').click()
+        driver.find_element_by_id('fineui_21-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_22-inputEl-icon').click()
+        driver.find_element_by_id('fineui_23-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_26-inputEl-icon').click()
+        driver.find_element_by_id('fineui_27-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_28-inputEl-icon').click()
+        driver.find_element_by_id('fineui_29-inputEl-icon').click()
         time.sleep(0.5)
-        driver.find_element_by_id('fineui_30-inputEl-icon').click()
-        time.sleep(0.5)
-        driver.find_element_by_id('fineui_35-inputEl-icon').click()
+        driver.find_element_by_id('fineui_31-inputEl-icon').click()
         time.sleep(0.5)
         driver.find_element_by_id('fineui_36-inputEl-icon').click()
         time.sleep(0.5)
+        driver.find_element_by_id('fineui_37-inputEl-icon').click()
+        time.sleep(0.5)
         driver.find_element_by_id('p1_ctl00_btnSubmit').click()
         time.sleep(1)
-        driver.find_element_by_id('fineui_41').click()
+        driver.find_element_by_id('fineui_42').click()
 
 
 def shotdown():
