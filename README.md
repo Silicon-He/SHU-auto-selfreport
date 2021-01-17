@@ -1,16 +1,15 @@
 上海大学自动每日一报
 
-1、请先安装谷歌浏览器chrome和配置chrome的chromedriver
+1、  可以先尝试看能否使用，如果不能使用再进行以下配置。
 
-  可以先尝试看能否使用，如果不能使用再进行以下配置。
+  请先安装谷歌浏览器chrome和配置chrome的chromedriver
 
-'''
   chromedriver下载地址http://npm.taobao.org/mirrors/chromedriver/
 
   请按照浏览器版本下载，下载好后请将其放到谷歌浏览器根目录和python根目录下
 
   将webdriver在浏览器目录中的绝对地址复制到login_info第一行，覆盖掉之前存在的示例地址
-'''
+
 
 2、配置Python环境:
 
